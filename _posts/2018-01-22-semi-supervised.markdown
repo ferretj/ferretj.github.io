@@ -74,7 +74,7 @@ class CNN(nn.Module):
         return x
 ```
 
-Gaussian noise (centered) is applied to the inputs. The standard deviation chosen defines the vicinity of the input samples the network has to be consistent on.
+Gaussian noise (centered) is applied to the inputs. The standard deviation chosen defines the aggressiveness of the transformation we want to teach the network to be robust to.
 
 ```py
 class GaussianNoise(nn.Module):
