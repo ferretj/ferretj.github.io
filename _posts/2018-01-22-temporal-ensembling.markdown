@@ -188,7 +188,7 @@ def temporal_loss(out1, out2, w, labels):
 
 The unsupervised component is weighted by a function ($$w$$) that slowly ramps up, reaching its peak as the training gets more advanced ($$t = T$$), in our case 80 epochs. It is defined by the expression $$w(t) = \exp(-5(1 - \frac{t}{T})^{2})$$ and has this shape :
 
-![](/resources/semi-supervised/rampup.png)
+![](/resources/temporal-ensembling/rampup.png)
 
 Here's the logic of our training loop : 
 
@@ -345,14 +345,14 @@ The seed variance is also pretty fine, considering that we only use 100 labeled 
 
 Here are the seed samples for our best model :
 
-<div style="text-align:center"><img src="/resources/semi-supervised/seed_samples_crop.png" alt="" width="450" margin="10px"/></div>
+<div style="text-align:center"><img src="/resources/temporal-ensembling/seed_samples_crop.png" alt="" width="450" margin="10px"/></div>
 <br>
 
 As you can see, the samples are far from perfect (sorry digits !).
 
 In addition, with both criteria converging, the training dynamic looks great :
 
-![](/resources/semi-supervised/training_best.png)
+![](/resources/temporal-ensembling/training_best.png)
 
 In the beginning, the supervised cost dominates clearly due to the slowly increasing weight of the unsupervised cost. As a result, the unsupervised cost first increases violently until its gradients start taking effect.
 
