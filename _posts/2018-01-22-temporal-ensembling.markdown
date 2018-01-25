@@ -28,9 +28,11 @@ In our case, we want to see how far we can get on [MNIST](https://en.wikipedia.o
 
 It comes from a relatively simple idea : **that we can use an ensemble of the previous outputs of a neural network as an unsupervised target**.
 
-This is called self-supervision.
+This is called self-ensembling.
 
-In practice it means that they compare the network outputs (post-softmax) to a weighted sum of the previous outputs gathered along training, on different epochs. Simple, right ?
+<div style="text-align:center"><img src="/resources/temporal-ensembling/schema.png" alt="" width="1200"/></div>
+
+In practice it means that they compare the network outputs (post-softmax) to a weighted sum of all its previous outputs. These temporal outputs are gathered during training, on each and every epoch. Simple, right ?
 
 To make the ensembled predictions more diverse, they augment the inputs using gaussian noise, and add dropout regularization.
 Doing that, they give an incentive to the network not to completely shift its prediction for a slightly different version of the same input, which is a desirable property anyway ! To put it another way, it helps the network learn noise-invariant features.
@@ -160,9 +162,11 @@ The loss function we use is a linear combination of the masked crossentropy and 
 
 $$ l_{B}(z) = - \frac{1}{\mid B \cap L \mid} \sum_{i \in (B \cap L)}{\log{z_{i}[y_{i}]}} + w(t) \frac{1}{C \mid B \mid} \sum_{i \in B}{\mid \mid z_{i} - \tilde{z}_{i} \mid \mid ^{2}} $$
 
+where $$B$$ is the set of minibatch indices, $$L$$ is the set of indices of labeled examples and $$C$$ is the amount of classes.
+
 The masked crossentropy takes only into account samples that possess a label (hence the notation $$B \cap L$$).
 
-In PyTorch, I used a workaround to limit the crossentropy to the labeled samples : the label of the unlabeled images is set to -1 and the mask is created using the `nonzero` function.
+The loss is defined this way. The workaround to limit the crossentropy to the labeled samples is to set the label of the unlabeled images to -1 to create the mask :
 
 ```py
 def temporal_loss(out1, out2, w, labels):
@@ -172,11 +176,12 @@ def temporal_loss(out1, out2, w, labels):
         return torch.sum((F.softmax(out1, dim=1) - F.softmax(out2, dim=1))**2) / out1.data.nelement()
     
     def masked_crossentropy(out, labels):
-        nnz = torch.nonzero(labels >= 0)
+        cond = (labels >= 0)
+        nnz = torch.nonzero(cond)
         nbsup = len(nnz)
         if nbsup > 0:
-            masked_out = torch.index_select(out, 0, nnz.view(nbsup))
-            masked_labels = labels[select]
+            masked_outputs = torch.index_select(out, 0, nnz.view(nbsup))
+            masked_labels = labels[cond]
             loss = F.cross_entropy(masked_outputs, masked_labels)
             return loss, nbsup
         return Variable(torch.FloatTensor([0.]), requires_grad=False), 0
@@ -186,7 +191,7 @@ def temporal_loss(out1, out2, w, labels):
     return sup_loss + w * unsup_loss, sup_loss, unsup_loss, nbsup
 ```
 
-The unsupervised component is weighted by a function ($$w$$) that slowly ramps up, reaching its peak as the training gets more advanced ($$t = T$$), in our case 80 epochs. It is defined by the expression $$w(t) = \exp(-5(1 - \frac{t}{T})^{2})$$ and has this shape :
+The unsupervised component is weighted by a function ($$w_{T}$$) that slowly ramps up. It is defined by the expression $$w_{T}(t) = \exp(-5(1 - \frac{t}{T})^{2})$$ and has this shape :
 
 ![](/resources/temporal-ensembling/rampup.png)
 
@@ -197,7 +202,7 @@ for epoch in range(num_epochs):
     t = timer()
     
     # evaluate unsupervised cost weight
-    w = weight_schedule(epoch, 80, 30., -5., k, 60000)
+    w = weight_schedule(epoch, max_epochs, max_val, ramp_up_mult, k, n_samples)
  
     if (epoch + 1) % 10 == 0:
         print 'unsupervised loss weight : {}'.format(w)
@@ -339,7 +344,7 @@ accuracy : 97.778 (+/- 0.627)
 accs : [97.99, 98.13, 96.58, 97.81, 98.38]
 ```
 
-Wow ! For a model as simple as the one we chose, just as advertised, we manage to get past 98% test accuracy, and even get 97.8% on average. To put things in perspective, training the same model the classic way on 100 images reaches only 88% accuracy.
+Wow ! For a model as simple as the one we chose, just as advertised, we manage to get past 98% test accuracy, and even get 97.8% on average. To put things in perspective, training the same model the classic way on 100 images reaches only 88% accuracy. To the best of my knowledge, the state-of-the-art performance on this very task is 99.4% ([Sajjadi et al.](https://arxiv.org/pdf/1606.03141.pdf)) and uses geometric augmentation.
 
 The seed variance is also pretty fine, considering that we only use 100 labeled images randomly sampled from the dataset (which happens to have many low quality samples).
 
@@ -356,7 +361,7 @@ In addition, with both criteria converging, the training dynamic looks great :
 
 In the beginning, the supervised cost dominates clearly due to the slowly increasing weight of the unsupervised cost. As a result, the unsupervised cost first increases violently until its gradients start taking effect.
 
-Though MNIST can be considered as a toy dataset by the actual Machine Learning standards, showing robust performance on a weakly supervised version of it is a strong indicator that Temporal Ensembling is a solid approach for semi-supervised learning.
+Though MNIST can be considered as a toy dataset by the actual Machine Learning standards, showing robust performance on a weakly-supervised setting is less trivial. It is a strong indicator that Temporal Ensembling is a solid approach to consider for semi-supervised learning.
 
 ### A short disclaimer
 
@@ -368,7 +373,7 @@ I found that using a channelwise instead of a pixelwise normalization during pre
 
 #### Scaling supervised cost 
 
-In the paper, they divide the sum of log probabilities (calculated on labeled samples) by the batchsize to calculate the masked crossentropy. I was puzzled by that choice and decided to try dividing by the amount of labeled samples in the batch instead. As a result, the supervised cost dominates more often, and the outcomes are slightly better and more stable.
+In their [code](https://github.com/smlaine2/tempens), the authors divide the sum of log probabilities (calculated on labeled samples) by the batchsize to calculate the masked crossentropy. I was puzzled by that choice and decided to try dividing by the amount of labeled samples in the batch instead. As a result, the supervised cost dominates more often, and the outcomes are slightly better and more stable.
 
 #### Cursed local minima
 
@@ -381,7 +386,7 @@ I read some more recent papers exploring ideas intimely related to Temporal Ense
 
 * [Snapshot Ensembles : train 1, get M for Free](https://arxiv.org/pdf/1704.00109.pdf)
 
-Basically, in a fully supervised setting, instead of using the temporal ensemble as a target for self-supervision, you use it as a stronger predictor. Like classic ensembling but free of charge ! Add cyclic learning rates, and you get impressive performance. 
+Basically, in a fully supervised setting, instead of using the temporal ensemble as a target for self-ensembling, you use it as a stronger predictor. Like classic ensembling but free of charge ! Add cyclic learning rates, and you get impressive performance. 
 
 * [mixup : Beyond Empirical Risk Minimization](https://arxiv.org/pdf/1710.09412.pdf)
 
@@ -411,7 +416,7 @@ Here are some things you can try to get more faithful to the original implementa
 
 See the [paper](https://arxiv.org/pdf/1610.02242.pdf) (appendix A) for details.      
 
-#### From self-supervision to self-ensembling
+#### Ensembling weights instead of outputs
 
 Published at NIPS 2017, the paper [Mean Teachers are Better Role Models: Weight-averaged Consistency Targets Improve Semi-Supervised Deep Learning Results](https://arxiv.org/pdf/1703.01780.pdf) provides an even more polished solution to the semi-supervised problem for images.
 
@@ -427,7 +432,7 @@ Don't be scared by the additional hyperparameters : many of them work right off 
 
 And if your pipeline involves data augmentation - well, it could even work better.
 
-Many thanks to [DreamQuark](https://www.dreamquark.com) for giving me the opportunity to speak openly about a subject that I explored during my work as a research engineer. If you're interested by this kind of research, do check their open positions, the team is great !
+Many thanks to [DreamQuark](https://www.dreamquark.com) for giving me the opportunity to share openly about a subject that I explored during my work as a research engineer. If you're interested by this kind of research, do check their open positions, the team is great !
 
 The code is available on [my GitHub](https://github.com/ferretj).
 
