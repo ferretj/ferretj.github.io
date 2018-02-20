@@ -4,13 +4,13 @@ title:  "Temporal Ensembling : getting over 98% accuracy on weakly-supervised MN
 date:   2018-01-22 23:32:12 +0100
 categories: jekyll update
 ---
-Hi there ! This post aims to explain and provide implementation details on Temporal Ensembling, a semi-supervised method for image classification. 
+Hi there ! This post aims to explain and provide implementation details on [Temporal Ensembling](https://arxiv.org/pdf/1610.02242.pdf), a semi-supervised method for image classification. 
 
 I will assume that you know the basics of Machine Learning and also a bit about neural networks. 
 
-Do regularization, dropout, softmax, or stochastic gradient descent mean something to you ?
+Are you familiar with regularization, dropout, softmax, or stochastic gradient descent ?
 
-If you don't feel offended by the question, I highly recommend going through some lectures of the Stanford course [Convolutional Neural Networks for Visual Recognition](http://cs231n.github.io/), which, though vision-flavored, is an insanely good resource to get started in Machine Learning.
+If you don't, I highly recommend going through some lectures of the Stanford course [Convolutional Neural Networks for Visual Recognition](http://cs231n.github.io/), which, though vision-flavored, is an insanely good resource to get started in Machine Learning.
 
 ### A few words on semi-supervised learning
 
@@ -30,12 +30,14 @@ It comes from a relatively simple idea : **that we can use an ensemble of the pr
 
 This is called self-ensembling.
 
+In practice it means that they compare the network current outputs (post-softmax) to a weighted sum of all its previous outputs. These outputs are gathered during training : in an epoch, each input is seen once and every output is memorized to serve as comparison later.
+
 <div style="text-align:center"><img src="/resources/temporal-ensembling/schema.png" alt="" width="1200"/></div>
 
-In practice it means that they compare the network outputs (post-softmax) to a weighted sum of all its previous outputs. These temporal outputs are gathered during training, on each and every epoch. Simple, right ?
+Why does it work ? To make good use of unlabeled samples, one needs to have a proxy for the true label. It does not need to be a 100% faithful reflection of the label since its function is to guide the network in the right direction. If you pause the training process and consider the current prediction, it is very likely that an ensemble of all previous predictions is more accurate and hints towards the true label. Hence, the self-ensemble serves as a handy label proxy.  
 
 To make the ensembled predictions more diverse, they augment the inputs using gaussian noise, and add dropout regularization.
-Doing that, they give an incentive to the network not to completely shift its prediction for a slightly different version of the same input, which is a desirable property anyway ! To put it another way, it helps the network learn noise-invariant features.
+Doing that, they give an incentive to the network not to completely shift its prediction for a slightly different version of the same input, which is a desirable property anyway ! To put it another way, injecting noise helps the network learn noise-invariant features.
 
 Since they use dropout, their ensemble can be seen as an implicit mix of the predictions of all sub-networks they leveraged dropping neurons randomly in the network. 
 
@@ -160,13 +162,17 @@ outputs = torch.zeros(ntrain, n_classes).float().cuda()  # current outputs
 
 The loss function we use is a linear combination of the masked crossentropy and the mean square error between the current outputs ($$z_{i}$$) and the temporal outputs ($$\tilde{z}_{i}$$) :
 
-$$ l_{B}(z) = - \frac{1}{\mid B \cap L \mid} \sum_{i \in (B \cap L)}{\log{z_{i}[y_{i}]}} + w(t) \frac{1}{C \mid B \mid} \sum_{i \in B}{\mid \mid z_{i} - \tilde{z}_{i} \mid \mid ^{2}} $$
+$$ l_{B}(z, \tilde{z}, y) = masked\_crossentropy(z, y) + w(t) * MSE(z, \tilde{z}) $$
 
-where $$B$$ is the set of minibatch indices, $$L$$ is the set of indices of labeled examples and $$C$$ is the amount of classes.
+The masked crossentropy takes only into account samples that possess a label. Calling $$B$$ the set of minibatch indices, $$L$$ the set of indices of labeled examples and $$C$$ the amount of classes, it is expressed this way :
 
-The masked crossentropy takes only into account samples that possess a label (hence the notation $$B \cap L$$).
+$$ masked\_crossentropy(z, y) = - \frac{1}{\mid B \cap L \mid} \sum_{i \in (B \cap L)}{\log{z_{i}[y_{i}]}} $$
 
-The loss is defined this way. The workaround to limit the crossentropy to the labeled samples is to set the label of the unlabeled images to -1 to create the mask :
+and mean square error is calculated like this :
+
+$$ MSE(z, \tilde{z}) = \frac{1}{C \mid B \mid} \sum_{i \in B}{\mid \mid z_{i} - \tilde{z}_{i} \mid \mid ^{2}} $$
+
+The workaround to limit the crossentropy to the labeled samples is to set the label of the unlabeled images to -1 to create the mask :
 
 ```py
 def temporal_loss(out1, out2, w, labels):
