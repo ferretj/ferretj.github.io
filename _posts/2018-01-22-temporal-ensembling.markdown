@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "Temporal Ensembling : getting over 98% accuracy on weakly-supervised MNIST"
+title:  "Semi-supervised image classification via Temporal Ensembling"
+excerpt: "Getting over 98% accuracy on weakly-supervised MNIST."
 date:   2018-01-22 23:32:12 +0100
-categories: jekyll update
+categories: ml
 ---
 Hi there ! This post aims to explain and provide implementation details on [Temporal Ensembling](https://arxiv.org/pdf/1610.02242.pdf), a semi-supervised method for image classification. 
 

@@ -6,7 +6,7 @@ permalink: /about/
 
 # Hi, I'm Johan !
 
-<img src="../me.jpg" alt="me" style="width: 250px;"/>
+<img src="../me_red.jpg" alt="me" style="width: 250px;"/>
 
 I am a Machine Learning research engineer living in Paris, France.
 
