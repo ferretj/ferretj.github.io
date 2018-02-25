@@ -31,11 +31,11 @@ It comes from a relatively simple idea : **that we can use an ensemble of the pr
 
 This is called self-ensembling.
 
-In practice it means that they compare the network current outputs (post-softmax) to a weighted sum of all its previous outputs. These outputs are gathered during training : in an epoch, each input is seen once and every output is memorized to serve as comparison later.
+In practice it means that they compare the network current outputs (post-softmax) to a weighted sum of all its previous outputs. Previous outputs are gathered during training : in an epoch, each input is seen once and every output is memorized to serve as comparison later.
 
 <div style="text-align:center"><img src="/resources/temporal-ensembling/schema.png" alt="" width="1200"/></div>
 
-Why does it work ? To make good use of unlabeled samples, one needs to have a proxy for the true label. It does not need to be a 100% faithful reflection of the label since its function is to guide the network in the right direction. If you pause the training process and consider the current prediction, it is very likely that an ensemble of all previous predictions is more accurate and hints towards the true label. Hence, the self-ensemble serves as a handy label proxy.  
+Why does it work ? If supervised learning was a cake, no doubt that labels would be the cherries on top that make it so good. Well, semi-supervised learning is the exact same cake except it has many less cherries. To make semi-supervised learning work, one needs to find a different variety of them, ones that are not as good but come close enough that your guests won't notice. What I'm implying in fact is that one needs to have a proxy for the true label of the unlabeled samples. It does not need to be a 100% faithful reflection of the label : its function is to guide the network in the right direction. If you pause the training process and consider the current model prediction, it is very likely that an ensemble of all previous predictions is more accurate and hints towards the true label. Hence, the self-ensemble is a handy label proxy that they use as a substitute for the missing cherries.  
 
 To make the ensembled predictions more diverse, they augment the inputs using gaussian noise, and add dropout regularization.
 Doing that, they give an incentive to the network not to completely shift its prediction for a slightly different version of the same input, which is a desirable property anyway ! To put it another way, injecting noise helps the network learn noise-invariant features.
