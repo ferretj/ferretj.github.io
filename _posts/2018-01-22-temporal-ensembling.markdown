@@ -31,11 +31,13 @@ It comes from a relatively simple idea : **that we can use an ensemble of the pr
 
 This is called self-ensembling.
 
-In practice it means that they compare the network current outputs (post-softmax) to a weighted sum of all its previous outputs. Previous outputs are gathered during training : in an epoch, each input is seen once and every output is memorized to serve as comparison later.
+In practice it means that they compare the network current outputs (post-softmax) to a weighted sum of all its previous outputs. Previous outputs are gathered during training : in an epoch, each input is seen once and its corresponding output is memorized to serve as comparison later.
 
 <div style="text-align:center"><img src="/resources/temporal-ensembling/schema.png" alt="" width="1200"/></div>
 
-Why does it work ? If supervised learning was a cake, no doubt that labels would be the cherries on top that make it so good. Well, semi-supervised learning is the exact same cake except it has many less cherries. To make semi-supervised learning work, one needs to find a different variety of them, ones that are not as good but come close enough that your guests won't notice. What I'm implying in fact is that one needs to have a proxy for the true label of the unlabeled samples. It does not need to be a 100% faithful reflection of the label : its function is to guide the network in the right direction. If you pause the training process and consider the current model prediction, it is very likely that an ensemble of all previous predictions is more accurate and hints towards the true label. Hence, the self-ensemble is a handy label proxy that they use as a substitute for the missing cherries.  
+Why does it work ? 
+
+If supervised learning was a cake, no doubt that labels would be the cherries on top that make it so good. Well, semi-supervised learning is the exact same cake except it has many less cherries. To make semi-supervised learning work, one needs to find a different variety of them, ones that are not as good but come close enough that you won't notice. What I'm implying in fact is that one needs to have a proxy for the true label of the unlabeled samples. It does not need to be a 100% faithful reflection of the label : its function is to guide the network in the right direction. If you pause the training process and consider the current model prediction, it is very likely that an ensemble of all previous predictions is more accurate and hints towards the true label. Hence, the self-ensemble is a handy label proxy that they use as a substitute for the missing cherries.  
 
 To make the ensembled predictions more diverse, they augment the inputs using gaussian noise, and add dropout regularization.
 Doing that, they give an incentive to the network not to completely shift its prediction for a slightly different version of the same input, which is a desirable property anyway ! To put it another way, injecting noise helps the network learn noise-invariant features.
@@ -90,8 +92,9 @@ class GaussianNoise(nn.Module):
         self.std = std
         
     def forward(self, x):
+        c = x.shape[0]
         self.noise.data.normal_(0, std=self.std)
-        return x + self.noise
+        return x + self.noise[:c]
 ```
 
 #### Preprocessing
@@ -180,18 +183,15 @@ def temporal_loss(out1, out2, w, labels):
     
     # MSE between current and temporal outputs
     def mse_loss(out1, out2):
-        return torch.sum((F.softmax(out1, dim=1) - F.softmax(out2, dim=1))**2) / out1.data.nelement()
+        quad_diff = torch.sum((F.softmax(out1, dim=1) - F.softmax(out2, dim=1)) ** 2)
+        return quad_diff / out1.data.nelement()
     
     def masked_crossentropy(out, labels):
-        cond = (labels >= 0)
-        nnz = torch.nonzero(cond)
-        nbsup = len(nnz)
-        if nbsup > 0:
-            masked_outputs = torch.index_select(out, 0, nnz.view(nbsup))
-            masked_labels = labels[cond]
-            loss = F.cross_entropy(masked_outputs, masked_labels)
-            return loss, nbsup
-        return Variable(torch.FloatTensor([0.]), requires_grad=False), 0
+        nbsup = len(torch.nonzero(labels >= 0))
+        loss = F.cross_entropy(out, labels, ignore_index=-1)
+        if nbsup != 0:
+            loss = loss / nbsup
+        return loss, nbsup
     
     sup_loss, nbsup = masked_crossentropy(out1, labels)
     unsup_loss = mse_loss(out1, out2)
@@ -244,10 +244,10 @@ for epoch in range(num_epochs):
         if (epoch + 1) % 10 == 0:
             if i + 1 == 2 * c:
                 print ('Epoch [%d/%d], Step [%d/%d], Loss: %.6f, Time (this epoch): %.2f s' 
-                       %(epoch + 1, num_epochs, i + 1, len(train_dataset) // batch_size, np.mean(l), timer() - t))
+                       % (epoch + 1, num_epochs, i + 1, len(train_dataset) // batch_size, np.mean(l), timer() - t))
             elif (i + 1) % c == 0:
                 print ('Epoch [%d/%d], Step [%d/%d], Loss: %.6f' 
-                       %(epoch + 1, num_epochs, i + 1, len(train_dataset) // batch_size, np.mean(l)))
+                       % (epoch + 1, num_epochs, i + 1, len(train_dataset) // batch_size, np.mean(l)))
 
     # update temporal ensemble
     Z = alpha * Z + (1. - alpha) * outputs
@@ -256,7 +256,7 @@ for epoch in range(num_epochs):
     # handle metrics, losses, etc.
     eloss = np.mean(l)
     losses.append(eloss)
-    sup_losses.append((1. / k) * np.sum(supl))  # division by 1/k to obtain the mean supervised loss
+    sup_losses.append((1. / k) * np.sum(supl))  # divide by 1/k to obtain the mean supervised loss
     unsup_losses.append(np.mean(unsupl))
     
     # saving model 
@@ -282,17 +282,7 @@ The test loop :
 ```py
 # test
 model.eval()
-correct = 0
-total = 0
-for images, labels in test_loader:
-    images = Variable(images.cuda(), volatile=True)
-    labels = Variable(labels.cuda())
-    outputs = model(images)
-    _, predicted = torch.max(outputs.data, 1)
-    total += labels.size(0)
-    correct += (predicted == labels.data.view_as(predicted)).sum()
-
-acc = 100 * float(correct) / total
+acc = calc_metrics(model, test_loader)
 if print_res:
     print 'Accuracy of the network on the 10000 test images: %.2f %%' % (acc)
     
@@ -300,17 +290,7 @@ if print_res:
 checkpoint = torch.load('model_best.pth.tar')
 model.load_state_dict(checkpoint['state_dict'])
 model.eval()
-correct = 0
-total = 0
-for images, labels in test_loader:
-    images = Variable(images.cuda(), volatile=True)
-    labels = Variable(labels.cuda())
-    outputs = model(images)
-    _, predicted = torch.max(outputs.data, 1)
-    total += labels.size(0)
-    correct += (predicted == labels.data.view_as(predicted)).sum()
-
-acc_best = 100 * float(correct) / total
+acc_best = calc_metrics(model, test_loader)
 if print_res:
     print 'Accuracy of the network (best model) on the 10000 test images: %.2f %%' % (acc_best)
  
@@ -441,7 +421,7 @@ And if your pipeline involves data augmentation - well, it could even work bette
 
 Many thanks to [DreamQuark](https://www.dreamquark.com) for giving me the opportunity to share openly about a subject that I explored during my work as a research engineer. If you're interested by this kind of research, do check their open positions, the team is great !
 
-The code is available on [my GitHub](https://github.com/ferretj).
+The code is available on [GitHub](https://github.com/ferretj/temporal-ensembling).
 
 Thanks for your neural attention !
 
