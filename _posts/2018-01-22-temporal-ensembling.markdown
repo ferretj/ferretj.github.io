@@ -33,7 +33,8 @@ This is called self-ensembling.
 
 In practice it means that they compare the network current outputs (post-softmax) to a weighted sum of all its previous outputs. Previous outputs are gathered during training : in an epoch, each input is seen once and its corresponding output is memorized to serve as comparison later.
 
-<div style="text-align:center"><img src="/resources/temporal-ensembling/schema.png" alt="" width="1200"/></div>
+<!--- <div style="text-align:center"><img src="/resources/temporal-ensembling/schema.png" alt="" width="1200"/></div> -->
+{% include image.html description="Representation of the temporal ensembling mechanism." url="/resources/temporal-ensembling/schema.png" %}
 
 Why does it work ? 
 
@@ -200,7 +201,8 @@ def temporal_loss(out1, out2, w, labels):
 
 The unsupervised component is weighted by a function ($$w_{T}$$) that slowly ramps up. It is defined by the expression $$w_{T}(t) = \exp(-5(1 - \frac{t}{T})^{2})$$ and has this shape :
 
-![](/resources/temporal-ensembling/rampup.png)
+<!--- ![](/resources/temporal-ensembling/rampup.png) -->
+{% include image.html description="Evolution of the weight for the unsupervised cost along epochs." url="/resources/temporal-ensembling/rampup.png" %}
 
 Here's the logic of our training loop : 
 
@@ -337,14 +339,20 @@ The seed variance is also pretty fine, considering that we only use 100 labeled 
 
 Here are the seed samples for our best model :
 
+<!---
 <div style="text-align:center"><img src="/resources/temporal-ensembling/seed_samples_crop.png" alt="" width="450" margin="10px"/></div>
 <br>
+-->
+{% include centered_image.html description="The 100 images with labels we randomly sampled." url="/resources/temporal-ensembling/seed_samples_crop.png" width="350" %}
 
 As you can see, the samples are far from perfect (sorry digits !).
 
 In addition, with both criteria converging, the training dynamic looks great :
 
+<!---
 ![](/resources/temporal-ensembling/training_best.png)
+-->
+{% include image.html description="Top: total train loss. Mid: masked-crossentropy. Bottom: MSE between current and temporal output." url="/resources/temporal-ensembling/training_best.png" %}
 
 In the beginning, the supervised cost dominates clearly due to the slowly increasing weight of the unsupervised cost. As a result, the unsupervised cost first increases violently until its gradients start taking effect.
 

@@ -123,6 +123,20 @@ pre {
     padding-left: 0; }
 
 /**
+ * UI Container
+ */
+.ui.container {
+  margin-bottom: 15px;
+}
+
+/**
+ * UI Secondary Segment
+ */
+.ui.secondary.segment {
+  font-size: 14px;
+}
+
+/**
  * Wrapper
  */
 .wrapper {

@@ -4,13 +4,11 @@ title: About
 permalink: /about/
 ---
 
-# Hi, I'm Johan !
-
+<!---
 <img src="../me_red.jpg" alt="me" style="width: 250px;"/>
+-->
 
-I am a Machine Learning research engineer living in Paris, France.
-
-I'm passionate about Machine Learning and its applications to language and vision.
+{% include identity_card.html url="../me_red.jpg" header="Hi, I'm Johan !" description="I am a Machine Learning research engineer living in Paris, France." description2="I'm on a quest to make machines more intelligent, even though I'm not sure about where to start." %}
 
 <!--
 # neural architecture search
