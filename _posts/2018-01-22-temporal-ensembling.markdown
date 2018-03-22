@@ -102,7 +102,7 @@ class GaussianNoise(nn.Module):
 
 MNIST dataset can be loaded using the `datasets` module from `torchvision`.
 
-We download the images, turn the `numpy` arrays into `torch` tensors, to finally subtract each pixel by the average greyscale pixel value and divide it by the standard deviation of the pixel values.
+We download the images, turn the `numpy` arrays into `torch` tensors, and apply pixel normalization.
 
 ```py
 def prepare_mnist():
