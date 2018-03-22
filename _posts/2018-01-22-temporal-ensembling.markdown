@@ -19,7 +19,7 @@ Semi-supervised learning is an important subfield of Machine Learning.
 
 It encompasses the techniques one can use when having both unlabeled data (usually a lot) and labeled data (usually a lot less). In that setting, unlabeled data can be used to improve model performance and generalization.
 
-Labeled data is a scarce resource for reasons. Generally speaking, the whole labelling process is costly and needs active monitoring to avoid assessment flaws. Reliably performing semi-supervised solutions could have a huge impact on industries whose data is mostly untapped, like healthcare or automated driving.
+Labeled data is a scarce resource. Generally speaking, the whole labelling process is costly and needs active monitoring to avoid assessment flaws. Reliably performing semi-supervised solutions could have a huge impact on industries whose data is mostly untapped, like healthcare or automated driving.
 
 In our case, we want to see how far we can get on [MNIST](https://en.wikipedia.org/wiki/MNIST_database) using only 100 labels out of the 60000 available. Let's go !
 
@@ -38,7 +38,7 @@ In practice it means that they compare the network current outputs (post-softmax
 
 Why does it work ? 
 
-If supervised learning was a cake, no doubt that labels would be the cherries on top that make it so good. Well, semi-supervised learning is the exact same cake except it has many less cherries. To make semi-supervised learning work, one needs to find a different variety of them, ones that are not as good but come close enough that you won't notice. What I'm implying in fact is that one needs to have a proxy for the true label of the unlabeled samples. It does not need to be a 100% faithful reflection of the label : its function is to guide the network in the right direction. If you pause the training process and consider the current model prediction, it is very likely that an ensemble of all previous predictions is more accurate and hints towards the true label. Hence, the self-ensemble is a handy label proxy that they use as a substitute for the missing cherries.  
+If supervised learning was a cake, no doubt that labels would be the cherries on top that make it so good. Well, semi-supervised learning is the exact same cake except it has many less cherries by default, so one needs to fake them. In other words, one needs to have a proxy for the true label of the unlabeled samples. It does not need to be a 100% faithful reflection of the label : the proxy's function is to guide the network in the right direction. If you pause the training process and consider the current model prediction, it is very likely that an ensemble of all previous predictions is more accurate and hints towards the true label. Hence, the self-ensemble is a handy label proxy that they use as a substitute for the missing cherries.  
 
 To make the ensembled predictions more diverse, they augment the inputs using gaussian noise, and add dropout regularization.
 Doing that, they give an incentive to the network not to completely shift its prediction for a slightly different version of the same input, which is a desirable property anyway ! To put it another way, injecting noise helps the network learn noise-invariant features.
@@ -189,7 +189,7 @@ def temporal_loss(out1, out2, w, labels):
     
     def masked_crossentropy(out, labels):
         nbsup = len(torch.nonzero(labels >= 0))
-        loss = F.cross_entropy(out, labels, ignore_index=-1)
+        loss = F.cross_entropy(out, labels, size_average=False, ignore_index=-1)
         if nbsup != 0:
             loss = loss / nbsup
         return loss, nbsup
@@ -421,7 +421,7 @@ If you want to dive deeper, check this excellent [post](https://thecuriousaicomp
 
 ### Conclusion
 
-Self-supervision via temporal ensembling is a cheap but powerful way to squeeze more performance out of a ConvNet, whether you have unlabeled samples or not.
+Self-ensembling via temporal ensembling is a cheap but powerful way to squeeze more performance out of a ConvNet, whether you have unlabeled samples or not.
 
 Don't be scared by the additional hyperparameters : many of them work right off the bat with the values provided in the article.
 
