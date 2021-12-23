@@ -21,10 +21,15 @@ Outside of work, I make [generative art](https://aleavore.xyz) (no GANs involved
 
 # Publications
 
+**Lazy-MDPs: Towards Interpretable RL by Learning When to Act** \
+<ins>Johan Ferret</ins>**\***, Alexis Jacq**\***, Olivier Pietquin, Matthieu Geist \
+AAMAS 2022 \
+\[paper soon! \| code soon!\]
+
 **There is no Turning Back: A Self-Supervised Approach to Reversibility-Aware Reinforcement Learning** \
 <ins>Johan Ferret</ins>**\***, Nathan Grinsztajn**\***, Olivier Pietquin, Philippe Preux, Matthieu Geist \
 NeurIPS 2021 \
-\[[paper](https://arxiv.org/abs/2106.04480) \| [slides](https://drive.google.com/file/d/11gXunD8wRkIjF90qTUJkXRJYgAaycFxi/view?usp=sharing)\]
+\[[paper](https://arxiv.org/abs/2106.04480) \| [slides](https://drive.google.com/file/d/11gXunD8wRkIjF90qTUJkXRJYgAaycFxi/view?usp=sharing) \| [code](https://github.com/nathangrinsztajn/NoTurningBack) \]
 
 **Self-Imitation Advantage Learning** \
 <ins>Johan Ferret</ins>, Olivier Pietquin, Matthieu Geist \
