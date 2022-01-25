@@ -36,7 +36,7 @@ NeurIPS 2021 \
 **Self-Imitation Advantage Learning** \
 <ins>Johan Ferret</ins>, Olivier Pietquin, Matthieu Geist \
 AAMAS 2021 \
-\[ [paper](https://arxiv.org/abs/2012.11989) \| [slides](https://drive.google.com/file/d/12JGykEt3tA7tEn0MZ5eR02mXY-54zF9o/view?usp=sharing) \| code soon! \]
+\[ [paper](https://arxiv.org/abs/2012.11989) \| [slides](https://drive.google.com/file/d/12JGykEt3tA7tEn0MZ5eR02mXY-54zF9o/view?usp=sharing) \| [code](https://github.com/google-research/google-research/tree/master/sail_rl) \]
 
 **Adversarially Guided Actor-Critic** \
 <ins>Johan Ferret</ins>**\***, Yannis Flet-Berliac**\***, Olivier Pietquin, Philippe Preux, Matthieu Geist \
