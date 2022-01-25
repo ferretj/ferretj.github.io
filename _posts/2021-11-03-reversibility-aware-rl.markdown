@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Reversibility-Aware Reinforcement Learning via Self-Supervision"
+title:  "Reversibility-Aware Reinforcement Learning via Self-supervision"
 excerpt: "Improving model-free RL performance on Sokoban using reversibility estimation."
 date:   2021-11-03 12:10:23 +0100
 categories: ml
