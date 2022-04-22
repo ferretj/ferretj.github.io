@@ -26,7 +26,7 @@ My CV is available [online](https://ferretj.github.io/resources/CV_ferretj.pdf),
 **Lazy-MDPs: Towards Interpretable RL by Learning When to Act** \
 <ins>Johan Ferret</ins>**\***, Alexis Jacq**\***, Olivier Pietquin, Matthieu Geist \
 AAMAS 2022 \
-\[ paper soon! \| code soon! \]
+\[ [paper](https://arxiv.org/abs/2203.08542) \| code soon! \]
 
 **There is no Turning Back: A Self-Supervised Approach to Reversibility-Aware Reinforcement Learning** \
 <ins>Johan Ferret</ins>**\***, Nathan Grinsztajn**\***, Olivier Pietquin, Philippe Preux, Matthieu Geist \
