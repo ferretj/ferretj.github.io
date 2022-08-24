@@ -10,10 +10,14 @@ layout: home
 {% include identity_card.html url="me2021_redux.jpg" %}
 
 Hi there!
-I am a 3rd year PhD student at Google Brain and Inria Lille ([Scool team](https://team.inria.fr/scool/team-members/), ex-SequeL). 
-I work on Deep Reinforcement Learning, with a focus on credit assignment and interpretability.
+I am an incoming Research Scientist at Google Brain.
+I will be researching novel Deep Reinforcement Learning algorithms.
 
-I am advised by [Olivier Pietquin](https://scholar.google.com/citations?user=8K8-LdwAAAAJ) and [Philippe Preux](https://scholar.google.com/citations?user=JTXxmeAAAAAJ). I am also working with [Matthieu Geist](https://scholar.google.com/citations?user=ectPLEUAAAAJ).
+Prior to that, I did my PhD at Google Brain and Inria Lille ([Scool team](https://team.inria.fr/scool/team-members/), ex-SequeL). 
+I worked on Deep Reinforcement Learning, with a focus on credit assignment and interpretability.
+My advisors were [Olivier Pietquin](https://scholar.google.com/citations?user=8K8-LdwAAAAJ) and [Philippe Preux](https://scholar.google.com/citations?user=JTXxmeAAAAAJ). I also collaborated with [Matthieu Geist](https://scholar.google.com/citations?user=ectPLEUAAAAJ). 
+
+My PhD thesis is available for consultation ([manuscript](https://drive.google.com/file/d/1tE1KEzJAiYA7NrskMd_rJejGp5sHQ_c_/view?usp=sharing), [slides](https://drive.google.com/file/d/1XIM3Jko68f70aEsog2vO5cOeT21F_oyh/view?usp=sharing)).
 
 Prior to my PhD, I got an engineering degree in Computer Science and Applied Mathematics from Télécom Paris, and an M.Sc. in Machine Learning from École Polytechnique. I then worked for two years as a Research Engineer at [DreamQuark](https://www.dreamquark.com).
 
@@ -22,6 +26,11 @@ Outside of work, I make [generative art](https://aleavore.xyz) (no GANs involved
 My CV is available [online](https://ferretj.github.io/resources/CV_ferretj.pdf), and all my publications can be consulted [here](https://scholar.google.com/citations?user=uyUnqjMAAAAJ). 
 
 # Publications
+
+**On Actions that Matter: Credit Assignment and Interpretability in Reinforcement Learning** \
+<ins>Johan Ferret</ins> \
+PhD thesis \
+\[ [manuscript](https://drive.google.com/file/d/1tE1KEzJAiYA7NrskMd_rJejGp5sHQ_c_/view?usp=sharing) \| [slides](https://drive.google.com/file/d/1XIM3Jko68f70aEsog2vO5cOeT21F_oyh/view?usp=sharing) \]
 
 **Lazy-MDPs: Towards Interpretable RL by Learning When to Act** \
 <ins>Johan Ferret</ins>**\***, Alexis Jacq**\***, Olivier Pietquin, Matthieu Geist \
