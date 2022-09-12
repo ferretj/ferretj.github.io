@@ -10,8 +10,8 @@ layout: home
 {% include identity_card.html url="me2021_redux.jpg" %}
 
 Hi there!
-I am an incoming Research Scientist at Google Brain.
-I will be researching novel Deep Reinforcement Learning algorithms.
+I am a Research Scientist at Google Brain.
+I am researching novel Deep Reinforcement Learning algorithms.
 
 Prior to that, I did my PhD at Google Brain and Inria Lille ([Scool team](https://team.inria.fr/scool/team-members/), ex-SequeL). 
 I worked on Deep Reinforcement Learning, with a focus on credit assignment and interpretability.
