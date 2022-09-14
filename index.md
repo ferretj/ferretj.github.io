@@ -66,6 +66,12 @@ arxiv preprint \
 
 # Workshops
 
+**Offline Credit Assignment in Deep Reinforcement Learning with Hindsight Discriminator Networks** \
+<ins>Johan Ferret</ins>, Olivier Pietquin, Matthieu Geist \
+EWRL 2022
+\[ [paper](https://drive.google.com/file/d/1EG4EpCpjzrI850ROwEutIcsCIu5isxlD/view?usp=sharing) \]
+
 **Credit Assignment as a Proxy for Transfer in Reinforcement Learning** \
 <ins>Johan Ferret</ins>, Raphaël Marinier, Matthieu Geist, Olivier Pietquin \
 Learning Transferable Skills workshop, NeurIPS 2019 (oral)
+\[ [paper](https://arxiv.org/abs/1907.08027) \]
