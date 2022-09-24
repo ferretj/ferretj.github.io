@@ -60,7 +60,7 @@ IJCAI 2020 \
 # Preprints
 
 **Acme: A Research Framework for Distributed Reinforcement Learning** \
-Matthew Hoffman, Bobak Shahriari, ..., <ins>Johan Ferret</ins>, ..., Nando de Freitas \
+Matthew Hoffman, Bobak Shahriari, John Aslanides, Gabriel Barth-Maron, Nikola Momchev, Danila Sinopalnikov, Piotr Stańczyk, Sabela Ramos, Anton Raichuk, Damien Vincent, Léonard Hussenot, Robert Dadashi, Gabriel Dulac-Arnold, Manu Orsini, Alexis Jacq, <ins>Johan Ferret</ins>, Nino Vieillard, Seyed Kamyar Seyed Ghasemipour, Sertan Girgin, Olivier Pietquin, Feryal Behbahani, Tamara Norman, Abbas Abdolmaleki, Albin Cassirer, Fan Yang, Kate Baumli, Sarah Henderson, Abe Friesen, Ruba Haroun, Alex Novikov, Sergio Gómez Colmenarejo, Serkan Cabi, Caglar Gulcehre, Tom Le Paine, Srivatsan Srinivasan, Andrew Cowie, Ziyu Wang, Bilal Piot, Nando de Freitas \
 arxiv preprint \
 \[ [paper](https://arxiv.org/abs/2006.00979) \| [colab](https://github.com/deepmind/acme/blob/master/examples/quickstart.ipynb) \| [code](https://dpmd.ai/acme-github) \]
 
