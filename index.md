@@ -40,7 +40,7 @@ AAMAS 2022 \
 **There is no Turning Back: A Self-Supervised Approach to Reversibility-Aware Reinforcement Learning** \
 <ins>Johan Ferret</ins>**\***, Nathan Grinsztajn**\***, Olivier Pietquin, Philippe Preux, Matthieu Geist \
 NeurIPS 2021 \
-\[ [paper](https://arxiv.org/abs/2106.04480) \| [slides](https://drive.google.com/file/d/11gXunD8wRkIjF90qTUJkXRJYgAaycFxi/view?usp=sharing) \| [code](https://github.com/nathangrinsztajn/NoTurningBack) \]
+\[ [paper](https://arxiv.org/abs/2106.04480) \| [blog post](https://ai.googleblog.com/2021/11/self-supervised-reversibility-aware.html) \| [slides](https://drive.google.com/file/d/11gXunD8wRkIjF90qTUJkXRJYgAaycFxi/view?usp=sharing) \| [code](https://github.com/nathangrinsztajn/NoTurningBack) \]
 
 **Self-Imitation Advantage Learning** \
 <ins>Johan Ferret</ins>, Olivier Pietquin, Matthieu Geist \
@@ -58,6 +58,11 @@ IJCAI 2020 \
 \[ [paper](https://arxiv.org/abs/1907.08027) \| [slides](https://drive.google.com/file/d/1e4-ypq84m3SIqjA9BqUvuM4P4psO9Laq/view?usp=sharing) \| [video](https://drive.google.com/file/d/1_U-XsCY01b_46CFiPkC5A4Z2VN0by5KE/view?usp=sharing) \]
 
 # Preprints
+
+**Acme: A Research Framework for Distributed Reinforcement Learning** \
+Matthew Hoffman, Bobak Shahriari, ..., <ins>Johan Ferret</ins>, ..., Nando de Freitas \
+arxiv preprint \
+\[ [paper](https://arxiv.org/abs/2006.00979) \| [colab](https://github.com/deepmind/acme/blob/master/examples/quickstart.ipynb) \| [code](https://dpmd.ai/acme-github) \]
 
 **More Efficient Exploration with Symbolic Priors on Action Sequence Equivalence** \
 Toby Johnstone, Nathan Grinsztajn, <ins>Johan Ferret</ins>, Philippe Preux \
