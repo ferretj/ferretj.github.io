@@ -10,8 +10,8 @@ layout: home
 {% include identity_card.html url="me2021_redux.jpg" %}
 
 Hi there!
-I am a Research Scientist at Google Brain.
-I am researching novel Deep Reinforcement Learning algorithms.
+I am a Research Scientist at Google DeepMind.
+I am researching novel Deep Reinforcement Learning algorithms and contributing to large-scale efforts including Bard and Magi.
 
 Prior to that, I did my PhD at Google Brain and Inria Lille ([Scool team](https://team.inria.fr/scool/team-members/), ex-SequeL). 
 I worked on Deep Reinforcement Learning, with a focus on credit assignment and interpretability.
@@ -27,12 +27,17 @@ My CV is available [online](https://ferretj.github.io/resources/CV_ferretj.pdf),
 
 # Publications
 
+**Factually Consistent Summarization via Reinforcement Learning with Textual Entailment Feedback** \
+<ins>Johan Ferret</ins>**\***, Paul Roit**\***, Lior Shani**\***, Roee Aharoni, Geoffrey Cideron, Robert Dadashi, Matthieu Geist, Sertan Girgin, Léonard Hussenot, Orgad Keller, Nikola Momchev, Sabela Ramos, Piotr Stanczyk, Nino Vieillard, Olivier Bachem, Gal Elidan, Avinatan Hassidim, Olivier Pietquin, Idan Szpektor \
+ACL 2023 \
+\[ [paper](https://arxiv.org/abs/2306.00186) \| code soon! \]
+
 **On Actions that Matter: Credit Assignment and Interpretability in Reinforcement Learning** \
 <ins>Johan Ferret</ins> \
 PhD thesis \
 \[ [manuscript](https://drive.google.com/file/d/1tE1KEzJAiYA7NrskMd_rJejGp5sHQ_c_/view?usp=sharing) \| [slides](https://drive.google.com/file/d/1XIM3Jko68f70aEsog2vO5cOeT21F_oyh/view?usp=sharing) \]
 
-**Lazy-MDPs: Towards Interpretable RL by Learning When to Act** \
+**Lazy-MDPs: Towards Interpretable Reinforcement Learning by Learning When to Act** \
 <ins>Johan Ferret</ins>**\***, Alexis Jacq**\***, Olivier Pietquin, Matthieu Geist \
 AAMAS 2022 \
 \[ [paper](https://arxiv.org/abs/2203.08542) \| code soon! \]
@@ -64,12 +69,12 @@ Matthew Hoffman, Bobak Shahriari, John Aslanides, Gabriel Barth-Maron, Nikola Mo
 arxiv preprint \
 \[ [paper](https://arxiv.org/abs/2006.00979) \| [colab](https://github.com/deepmind/acme/blob/master/examples/quickstart.ipynb) \| [code](https://dpmd.ai/acme-github) \]
 
-**More Efficient Exploration with Symbolic Priors on Action Sequence Equivalence** \
-Toby Johnstone, Nathan Grinsztajn, <ins>Johan Ferret</ins>, Philippe Preux \
-arxiv preprint \
-\[ [paper](https://arxiv.org/abs/2110.10632) \]
-
 # Workshops
+
+**More Efficient Exploration with Symbolic Priors on Action Sequence Equivalence** \
+Nathan Grinsztajn, Toby Johnstone, <ins>Johan Ferret</ins>, Philippe Preux \
+Deep Reinforcement Learning workshop, NeurIPS 2022 \
+\[ [paper](https://arxiv.org/abs/2110.10632) \]
 
 **Offline Credit Assignment in Deep Reinforcement Learning with Hindsight Discriminator Networks** \
 <ins>Johan Ferret</ins>, Olivier Pietquin, Matthieu Geist \
