@@ -64,7 +64,7 @@ IJCAI 2020 \
 
 # Preprints
 
-**Gemini: A Family of Highly Capable Multimodal Models**
+**Gemini: A Family of Highly Capable Multimodal Models** \
 Gemini Team \
 Technical report \
 \[ [paper](https://arxiv.org/abs/2312.11805) \]
