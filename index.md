@@ -11,7 +11,7 @@ layout: home
 
 Hi there!
 I am a Research Scientist at Google DeepMind.
-I am researching novel Deep Reinforcement Learning algorithms and contributing to large-scale efforts including Bard and Magi.
+I am researching novel Deep Reinforcement Learning algorithms and contributing to large-scale efforts including Bard and Gemini.
 
 Prior to that, I did my PhD at Google Brain and Inria Lille ([Scool team](https://team.inria.fr/scool/team-members/), ex-SequeL). 
 I worked on Deep Reinforcement Learning, with a focus on credit assignment and interpretability.
@@ -63,6 +63,21 @@ IJCAI 2020 \
 \[ [paper](https://arxiv.org/abs/1907.08027) \| [slides](https://drive.google.com/file/d/1e4-ypq84m3SIqjA9BqUvuM4P4psO9Laq/view?usp=sharing) \| [video](https://drive.google.com/file/d/1_U-XsCY01b_46CFiPkC5A4Z2VN0by5KE/view?usp=sharing) \]
 
 # Preprints
+
+**Gemini: A Family of Highly Capable Multimodal Models**
+Gemini Team \
+Technical report \
+\[ [paper](https://arxiv.org/abs/2312.11805) \]
+
+**A Survey of Temporal Credit Assignment in Deep Reinforcement Learning** \
+Eduardo Pignatelli, <ins>Johan Ferret</ins>, Matthieu Geist, Hado van Hasselt, Laura Toni \
+arxiv preprint \
+\[ [paper](https://arxiv.org/abs/2312.01072) \]
+
+**RLAIF: Scaling Reinforcement Learning from Human Feedback with AI Feedback** \
+Harrison Lee, Samrat Phatale, Hassan Mansoor, Thomas Mesnard, <ins>Johan Ferret</ins>, Kellie Lu, Colton Bishop, Ethan Hall, Victor Carbune, Abhinav Rastogi, Sushant Prakash \
+arxiv preprint \
+\[ [paper](https://arxiv.org/abs/2309.00267) \]
 
 **Acme: A Research Framework for Distributed Reinforcement Learning** \
 Matthew Hoffman, Bobak Shahriari, John Aslanides, Gabriel Barth-Maron, Nikola Momchev, Danila Sinopalnikov, Piotr Stańczyk, Sabela Ramos, Anton Raichuk, Damien Vincent, Léonard Hussenot, Robert Dadashi, Gabriel Dulac-Arnold, Manu Orsini, Alexis Jacq, <ins>Johan Ferret</ins>, Nino Vieillard, Seyed Kamyar Seyed Ghasemipour, Sertan Girgin, Olivier Pietquin, Feryal Behbahani, Tamara Norman, Abbas Abdolmaleki, Albin Cassirer, Fan Yang, Kate Baumli, Sarah Henderson, Abe Friesen, Ruba Haroun, Alex Novikov, Sergio Gómez Colmenarejo, Serkan Cabi, Caglar Gulcehre, Tom Le Paine, Srivatsan Srinivasan, Andrew Cowie, Ziyu Wang, Bilal Piot, Nando de Freitas \
