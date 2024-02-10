@@ -64,6 +64,16 @@ IJCAI 2020 \
 
 # Preprints
 
+**Direct Language Model Alignment from Online AI Feedback** \
+Shangmin Guo, Biao Zhang, Tianlin Liu, Tianqi Liu, Misha Khalman, Felipe Llinares, Alexandre Ramé, Thomas Mesnard, Yao Zhao, Bilal Piot, <ins>Johan Ferret</ins>, Mathieu Blondel \
+arxiv preprint \
+\[ [paper](https://arxiv.org/abs/2402.04792) \]
+
+**WARM: On the Benefits of Weight Averaged Reward Models** \
+Alexandre Ramé, Nino Vieillard, Léonard Hussenot, Robert Dadashi, Geoffrey Cideron, Olivier Bachem, <ins>Johan Ferret</ins> \
+arxiv preprint \
+\[ [paper](https://arxiv.org/abs/2401.12187) \]
+
 **Gemini: A Family of Highly Capable Multimodal Models** \
 Gemini Team \
 Technical report \
