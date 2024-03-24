@@ -64,7 +64,7 @@ IJCAI 2020 \
 
 # Preprints
 
-**Gemma: Open Nodels Based on Gemini Research and Technology** \
+**Gemma: Open Models Based on Gemini Research and Technology** \
 Gemma Team \
 Technical report \
 \[ [paper](https://arxiv.org/abs/2403.08295) \]
