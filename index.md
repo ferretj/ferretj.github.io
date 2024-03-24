@@ -11,7 +11,7 @@ layout: home
 
 Hi there!
 I am a Research Scientist at Google DeepMind.
-I am researching novel Deep Reinforcement Learning algorithms and contributing to large-scale efforts including Bard and Gemini.
+I am researching novel Deep Reinforcement Learning algorithms and contributing to large-scale efforts including Bard, Gemma and Gemini.
 
 Prior to that, I did my PhD at Google Brain and Inria Lille ([Scool team](https://team.inria.fr/scool/team-members/), ex-SequeL). 
 I worked on Deep Reinforcement Learning, with a focus on credit assignment and interpretability.
@@ -63,6 +63,11 @@ IJCAI 2020 \
 \[ [paper](https://arxiv.org/abs/1907.08027) \| [slides](https://drive.google.com/file/d/1e4-ypq84m3SIqjA9BqUvuM4P4psO9Laq/view?usp=sharing) \| [video](https://drive.google.com/file/d/1_U-XsCY01b_46CFiPkC5A4Z2VN0by5KE/view?usp=sharing) \]
 
 # Preprints
+
+**Gemma: Open Nodels Based on Gemini Research and Technology** \
+Gemma Team \
+Technical report \
+\[ [paper](https://arxiv.org/abs/2403.08295) \]
 
 **Direct Language Model Alignment from Online AI Feedback** \
 Shangmin Guo, Biao Zhang, Tianlin Liu, Tianqi Liu, Misha Khalman, Felipe Llinares, Alexandre Ramé, Thomas Mesnard, Yao Zhao, Bilal Piot, <ins>Johan Ferret</ins>, Mathieu Blondel \
