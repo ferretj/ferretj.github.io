@@ -11,10 +11,10 @@ layout: home
 
 Hi there!
 I am a Research Scientist at Google DeepMind.
-I am researching novel Deep Reinforcement Learning algorithms and contributing to large-scale efforts including Bard, Gemma and Gemini.
+I am doing research on Reinforcement Learning and LLMs and also contributing to large-scale efforts including Bard, Gemini and Gemma.
 
 Prior to that, I did my PhD at Google Brain and Inria Lille ([Scool team](https://team.inria.fr/scool/team-members/), ex-SequeL). 
-I worked on Deep Reinforcement Learning, with a focus on credit assignment and interpretability.
+I worked on Reinforcement Learning, with a focus on credit assignment and interpretability.
 My advisors were [Olivier Pietquin](https://scholar.google.com/citations?user=8K8-LdwAAAAJ) and [Philippe Preux](https://scholar.google.com/citations?user=JTXxmeAAAAAJ). I also collaborated with [Matthieu Geist](https://scholar.google.com/citations?user=ectPLEUAAAAJ). 
 
 My PhD thesis is available for consultation ([manuscript](https://drive.google.com/file/d/1tE1KEzJAiYA7NrskMd_rJejGp5sHQ_c_/view?usp=sharing), [slides](https://drive.google.com/file/d/1XIM3Jko68f70aEsog2vO5cOeT21F_oyh/view?usp=sharing)).
@@ -26,6 +26,11 @@ Outside of work, I make [generative art](https://aleavore.xyz) (no GANs involved
 My CV is available [online](https://ferretj.github.io/resources/CV_ferretj.pdf), and all my publications can be consulted [here](https://scholar.google.com/citations?user=uyUnqjMAAAAJ). 
 
 # Publications
+
+**A Survey of Temporal Credit Assignment in Deep Reinforcement Learning** \
+Eduardo Pignatelli, <ins>Johan Ferret</ins>, Matthieu Geist, Hado van Hasselt, Olivier Pietquin, Laura Toni \
+TMLR \
+\[ [paper](https://arxiv.org/abs/2312.01072) \]
 
 **Factually Consistent Summarization via Reinforcement Learning with Textual Entailment Feedback** \
 <ins>Johan Ferret</ins>**\***, Paul Roit**\***, Lior Shani**\***, Roee Aharoni, Geoffrey Cideron, Robert Dadashi, Matthieu Geist, Sertan Girgin, Léonard Hussenot, Orgad Keller, Nikola Momchev, Sabela Ramos, Piotr Stanczyk, Nino Vieillard, Olivier Bachem, Gal Elidan, Avinatan Hassidim, Olivier Pietquin, Idan Szpektor \
@@ -83,11 +88,6 @@ arxiv preprint \
 Gemini Team \
 Technical report \
 \[ [paper](https://arxiv.org/abs/2312.11805) \]
-
-**A Survey of Temporal Credit Assignment in Deep Reinforcement Learning** \
-Eduardo Pignatelli, <ins>Johan Ferret</ins>, Matthieu Geist, Hado van Hasselt, Laura Toni \
-arxiv preprint \
-\[ [paper](https://arxiv.org/abs/2312.01072) \]
 
 **RLAIF: Scaling Reinforcement Learning from Human Feedback with AI Feedback** \
 Harrison Lee, Samrat Phatale, Hassan Mansoor, Thomas Mesnard, <ins>Johan Ferret</ins>, Kellie Lu, Colton Bishop, Ethan Hall, Victor Carbune, Abhinav Rastogi, Sushant Prakash \
