@@ -29,7 +29,7 @@ My CV is available [online](https://ferretj.github.io/resources/CV_ferretj.pdf),
 
 **A Survey of Temporal Credit Assignment in Deep Reinforcement Learning** \
 Eduardo Pignatelli, <ins>Johan Ferret</ins>, Matthieu Geist, Hado van Hasselt, Olivier Pietquin, Laura Toni \
-TMLR \
+TMLR 2024 \
 \[ [paper](https://arxiv.org/abs/2312.01072) \]
 
 **Factually Consistent Summarization via Reinforcement Learning with Textual Entailment Feedback** \
@@ -68,6 +68,11 @@ IJCAI 2020 \
 \[ [paper](https://arxiv.org/abs/1907.08027) \| [slides](https://drive.google.com/file/d/1e4-ypq84m3SIqjA9BqUvuM4P4psO9Laq/view?usp=sharing) \| [video](https://drive.google.com/file/d/1_U-XsCY01b_46CFiPkC5A4Z2VN0by5KE/view?usp=sharing) \]
 
 # Preprints
+
+**RecurrentGemma: Moving Past Transformers for Efficient Open Language Models** \
+Griffin Team, <ins>RLHF Team</ins>, Gemma Team \
+Technical report \
+\[ [paper](https://arxiv.org/abs/2404.07839) \]
 
 **Gemma: Open Models Based on Gemini Research and Technology** \
 Gemma Team \
