@@ -27,6 +27,16 @@ My CV is available [online](https://ferretj.github.io/resources/CV_ferretj.pdf),
 
 # Publications
 
+**WARM: On the Benefits of Weight Averaged Reward Models** \
+Alexandre Ramé, Nino Vieillard, Léonard Hussenot, Robert Dadashi, Geoffrey Cideron, Olivier Bachem, <ins>Johan Ferret</ins> \
+ICML 2024 \
+\[ [paper](https://arxiv.org/abs/2401.12187) \]
+
+**RLAIF: Scaling Reinforcement Learning from Human Feedback with AI Feedback** \
+Harrison Lee, Samrat Phatale, Hassan Mansoor, Thomas Mesnard, <ins>Johan Ferret</ins>, Kellie Lu, Colton Bishop, Ethan Hall, Victor Carbune, Abhinav Rastogi, Sushant Prakash \
+ICML 2024 \
+\[ [paper](https://arxiv.org/abs/2309.00267) \]
+
 **A Survey of Temporal Credit Assignment in Deep Reinforcement Learning** \
 Eduardo Pignatelli, <ins>Johan Ferret</ins>, Matthieu Geist, Hado van Hasselt, Olivier Pietquin, Laura Toni \
 TMLR 2024 \
@@ -84,20 +94,10 @@ Shangmin Guo, Biao Zhang, Tianlin Liu, Tianqi Liu, Misha Khalman, Felipe Llinare
 arxiv preprint \
 \[ [paper](https://arxiv.org/abs/2402.04792) \]
 
-**WARM: On the Benefits of Weight Averaged Reward Models** \
-Alexandre Ramé, Nino Vieillard, Léonard Hussenot, Robert Dadashi, Geoffrey Cideron, Olivier Bachem, <ins>Johan Ferret</ins> \
-arxiv preprint \
-\[ [paper](https://arxiv.org/abs/2401.12187) \]
-
 **Gemini: A Family of Highly Capable Multimodal Models** \
 Gemini Team \
 Technical report \
 \[ [paper](https://arxiv.org/abs/2312.11805) \]
-
-**RLAIF: Scaling Reinforcement Learning from Human Feedback with AI Feedback** \
-Harrison Lee, Samrat Phatale, Hassan Mansoor, Thomas Mesnard, <ins>Johan Ferret</ins>, Kellie Lu, Colton Bishop, Ethan Hall, Victor Carbune, Abhinav Rastogi, Sushant Prakash \
-arxiv preprint \
-\[ [paper](https://arxiv.org/abs/2309.00267) \]
 
 **Acme: A Research Framework for Distributed Reinforcement Learning** \
 Matthew Hoffman, Bobak Shahriari, John Aslanides, Gabriel Barth-Maron, Nikola Momchev, Danila Sinopalnikov, Piotr Stańczyk, Sabela Ramos, Anton Raichuk, Damien Vincent, Léonard Hussenot, Robert Dadashi, Gabriel Dulac-Arnold, Manu Orsini, Alexis Jacq, <ins>Johan Ferret</ins>, Nino Vieillard, Seyed Kamyar Seyed Ghasemipour, Sertan Girgin, Olivier Pietquin, Feryal Behbahani, Tamara Norman, Abbas Abdolmaleki, Albin Cassirer, Fan Yang, Kate Baumli, Sarah Henderson, Abe Friesen, Ruba Haroun, Alex Novikov, Sergio Gómez Colmenarejo, Serkan Cabi, Caglar Gulcehre, Tom Le Paine, Srivatsan Srinivasan, Andrew Cowie, Ziyu Wang, Bilal Piot, Nando de Freitas \
