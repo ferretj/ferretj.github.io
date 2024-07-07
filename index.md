@@ -79,6 +79,11 @@ IJCAI 2020 \
 
 # Preprints
 
+**WARP: On the Benefits of Weight Averaged Rewarded Policies** \
+Alexandre Ramé, <ins>Johan Ferret</ins>, Nino Vieillard, Robert Dadashi, Léonard Hussenot, Pierre-Louis Cedoz, Pier Giuseppe Sessa, Sertan Girgin, Arthur Douillard, Olivier Bachem \
+arxiv preprint \
+\[ [paper](https://arxiv.org/abs/2406.16768v1) \]
+
 **RecurrentGemma: Moving Past Transformers for Efficient Open Language Models** \
 Griffin Team, <ins>RLHF Team</ins>, Gemma Team \
 Technical report \
@@ -100,11 +105,16 @@ Technical report \
 \[ [paper](https://arxiv.org/abs/2312.11805) \]
 
 **Acme: A Research Framework for Distributed Reinforcement Learning** \
-Matthew Hoffman, Bobak Shahriari, John Aslanides, Gabriel Barth-Maron, Nikola Momchev, Danila Sinopalnikov, Piotr Stańczyk, Sabela Ramos, Anton Raichuk, Damien Vincent, Léonard Hussenot, Robert Dadashi, Gabriel Dulac-Arnold, Manu Orsini, Alexis Jacq, <ins>Johan Ferret</ins>, Nino Vieillard, Seyed Kamyar Seyed Ghasemipour, Sertan Girgin, Olivier Pietquin, Feryal Behbahani, Tamara Norman, Abbas Abdolmaleki, Albin Cassirer, Fan Yang, Kate Baumli, Sarah Henderson, Abe Friesen, Ruba Haroun, Alex Novikov, Sergio Gómez Colmenarejo, Serkan Cabi, Caglar Gulcehre, Tom Le Paine, Srivatsan Srinivasan, Andrew Cowie, Ziyu Wang, Bilal Piot, Nando de Freitas \
+Acme Team \
 arxiv preprint \
 \[ [paper](https://arxiv.org/abs/2006.00979) \| [colab](https://github.com/deepmind/acme/blob/master/examples/quickstart.ipynb) \| [code](https://dpmd.ai/acme-github) \]
 
 # Workshops
+
+**Assessing the Zero-Shot Capabilities of LLMs for Action Evaluation in RL** \
+Eduardo Pignatelli, <ins>Johan Ferret</ins>, Davide Paglieri, Samuel Coward, Tim Rocktäschel, Edward Grefenstette, Laura Toni \
+AutoRL workshop, ICML 2024 \
+\[ [paper](https://openreview.net/forum?id=MFw8K5705I) \]
 
 **More Efficient Exploration with Symbolic Priors on Action Sequence Equivalence** \
 Nathan Grinsztajn, Toby Johnstone, <ins>Johan Ferret</ins>, Philippe Preux \
