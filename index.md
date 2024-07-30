@@ -84,6 +84,16 @@ Alexandre Ramé, <ins>Johan Ferret</ins>, Nino Vieillard, Robert Dadashi, Léona
 arxiv preprint \
 \[ [paper](https://arxiv.org/abs/2406.16768v1) \]
 
+**BOND: Aligning LLMs with Best-of-N Distillation** \
+Pier Giuseppe Sessa, Robert Dadashi, Léonard Hussenot, <ins>Johan Ferret</ins>, Nino Vieillard, Alexandre Ramé, Bobak Shariari, Sarah Perrin, Abe Friesen, Geoffrey Cideron, Sertan Girgin, Piotr Stanczyk, Andrea Michi, Danila Sinopalnikov, Sabela Ramos, Amélie Héliou, Aliaksei Severyn, Matt Hoffman, Nikola Momchev, Olivier Bachem \
+arxiv preprint \
+\[ [paper](https://arxiv.org/abs/2407.14622v1) \]
+
+**Conditioned Language Policy: A General Framework for Steerable Multi-Objective Finetuning** \
+Kaiwen Wang, Rahul Kidambi, Ryan Sullivan, Alekh Agarwal, Christoph Dann, Andrea Michi, Marco Gelmi, Yunxuan Li, Raghav Gupta, Avinava Dubey, Alexandre Ramé, <ins>Johan Ferret</ins>, Geoffrey Cideron, Le Hou, Hongkun Yu, Amr Ahmed, Aranyak Mehta, Léonard Hussenot, Olivier Bachem, Edouard Leurent \
+arxiv preprint \
+\[ [paper](https://arxiv.org/abs/2407.15762) \]
+
 **RecurrentGemma: Moving Past Transformers for Efficient Open Language Models** \
 Griffin Team, <ins>RLHF Team</ins>, Gemma Team \
 Technical report \
