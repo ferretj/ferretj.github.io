@@ -21,7 +21,7 @@ My PhD thesis is available for consultation ([manuscript](https://drive.google.c
 
 Prior to my PhD, I got an engineering degree in Computer Science and Applied Mathematics from Télécom Paris, and an M.Sc. in Machine Learning from École Polytechnique.
 
-Outside of work, I make [generative art](https://aleavore.xyz) (no GANs involved for now!). I also love music, [roguelikes](https://en.wikipedia.org/wiki/Roguelike), [high-intensity interval training](https://en.wikipedia.org/wiki/High-intensity_interval_training) and spicy food.
+Outside of work, I make [generative art](https://aleavore.com). I also love music, [roguelikes](https://en.wikipedia.org/wiki/Roguelike), [high-intensity interval training](https://en.wikipedia.org/wiki/High-intensity_interval_training) and spicy food.
 
 My CV is available [online](https://ferretj.github.io/resources/CV_ferretj.pdf), and all my publications can be consulted [here](https://scholar.google.com/citations?user=uyUnqjMAAAAJ). 
 
