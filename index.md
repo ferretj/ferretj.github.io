@@ -94,6 +94,11 @@ IJCAI 2020 \
 
 # Preprints
 
+**Humanity's Last Exam** \
+HLE Team \
+Technical report \
+\[ [paper](https://static.scale.com/uploads/654197dc94d34f66c0f5184e/Publication%20Ready%20Humanity's%20Last%20Exam.pdf) \]
+
 **WARP: On the Benefits of Weight Averaged Rewarded Policies** \
 Alexandre Ramé, <ins>Johan Ferret</ins>, Nino Vieillard, Robert Dadashi, Léonard Hussenot, Pierre-Louis Cedoz, Pier Giuseppe Sessa, Sertan Girgin, Arthur Douillard, Olivier Bachem \
 arxiv preprint \
