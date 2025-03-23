@@ -104,6 +104,11 @@ Alexandre Ramé, <ins>Johan Ferret</ins>, Nino Vieillard, Robert Dadashi, Léona
 arxiv preprint \
 \[ [paper](https://arxiv.org/abs/2406.16768v1) \]
 
+**Gemma 2: Improving Open Language Models at a Practical Size** \
+Gemma Team \
+Technical report \
+\[ [paper](https://arxiv.org/abs/2408.00118) \]
+
 **RecurrentGemma: Moving Past Transformers for Efficient Open Language Models** \
 Griffin Team, <ins>RLHF Team</ins>, Gemma Team \
 Technical report \
